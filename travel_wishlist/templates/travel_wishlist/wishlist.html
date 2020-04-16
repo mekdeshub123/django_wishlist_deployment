@@ -1,0 +1,31 @@
+{% extends 'travel_wishlist/base.html' %}<!--extends base.html-->
+{% block content %}<!--'block tag' indicates what content replaces the same tags in base.html-->
+<h2>Travel Wishlist</h2>
+
+<form id="form-wish" method="POST" action="{%url 'place_list'%}"><!--instructs to reverse lookup-->
+    {% csrf_token %}<!--this tag provides protection against "Cross Site Request Forgeries" -->
+    {{ new_place_form}}
+    <button id="add-new-place" type="submit">Add</button>
+</form>
+
+{% for place in places%} <!--looping over wishlist places lists-->
+
+    <div class="wishlist-place">
+        <span id="place-name-{{ place.pk}}" class="place-name">
+            <a href="{% url 'place_details' place_pk=place.pk %}">{{ place.name}}</a>
+        </span>
+
+        <form class="visited-form" method="POST" action="{% url 'place_was_visited' %}"><!--instructs the templete to look-up the
+        actual url with this name from urls.pu-->
+            {% csrf_token %}
+            <input type="hidden" name="pk" value="{{ place.pk }}">
+            <button id="visited-button-{{ place.pk}}" type="submit">Visited !</button>
+        </form>
+    </div>
+
+{% empty%}<!--if the places list is empty, the following message pops-->
+
+    <p>You have no places in your wishlist</p>
+
+{% endfor%}
+{% endblock%}

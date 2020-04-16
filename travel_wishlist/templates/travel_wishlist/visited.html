@@ -1,0 +1,25 @@
+{% extends 'travel_wishlist/base.html' %}<!--this templet extends base.html-->
+{% block content %}<!--content in this block replaces the 
+same tags in base.html-->
+
+<h2>Places You have visited</h2>
+
+{% if visited %}<!--this tag evalutats the visited variable. 
+    if visited true, it puts the lists of the places -->
+
+<ul>
+    {% for place in visited %}<!--iterating over-->
+     <li>
+         <a href="{% url 'place_details' place_pk=place.pk %}">
+             {{ place.name}}
+         </a>
+
+     </li>
+    {% endfor %}
+</ul>
+{% else %}<!--else disply not visited yet message-->
+
+    <p>You have not visited any places yet.</p>
+{% endif %}<!--end of if tag-->
+
+{% endblock %}<!--end of the block content-->

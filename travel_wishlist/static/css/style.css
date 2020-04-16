@@ -1,0 +1,55 @@
+span.place-name {
+    display: inline-block;
+    width: 60%;
+}
+
+form.visited-form {
+    display: inline;
+}
+
+div.wishlist-place {
+    margin: 5%;
+}
+
+label {
+    display: inline-block;
+    padding-right: 8px;
+}
+
+a.nav-link {
+    padding-right: 10px;
+}
+#add-new-place {
+    background-color: blue;
+    border: dark brown;
+}
+#form-wish {
+    padding: 10px;
+    background-color: rgb(196, 175, 58);
+}
+body {
+    padding: 70px;
+    background-color: rgb(238, 224, 206);
+    
+}
+/* in place_detail.html. Buttons for deleted, visited and Save review buttons */
+.delete {
+    background-color: red;
+    border-color: black;
+}
+.visited {
+    background-color: blueviolet;
+}
+.save-review-b {
+    border-style: double;
+    border-color: black;
+}
+
+/*Style for header image*/
+#site-header {
+    /*background: url('../img/photo-eth2.jfif') 0 0 repeat-x;*/
+    background: 0 0 repeat-x;
+    color: white;
+    padding: 40px 0 40px 0px;
+    text-align: center;
+}
